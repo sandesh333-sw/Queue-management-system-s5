@@ -7,6 +7,7 @@ export default function App() {
   const [queue, setQueue] = useState([]);
   const addToQueue = (customer) => {
     //add data to queue
+    setQueue([...queue, {...customer, id: Date.now(), status:'waiting'}]);
   }
 
   const updateStatus = (id, newStatus) => {
@@ -19,9 +20,8 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <header className="head">
         <h1>Queue Management</h1>
-        <p>Manage your customers eficiently</p>
       </header>
       <main className="main-part">
         <section className="queue-form">
