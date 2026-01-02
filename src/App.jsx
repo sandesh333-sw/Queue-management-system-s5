@@ -13,11 +13,13 @@ export default function App() {
   }
 
   const updateStatus = (id, newStatus) => {
-    //change data in queue
-    setQueue(queue.map(customer => {
-      customer.id === id ? {...customer, status: newStatus}: customer;
-    }));
-  }
+  setQueue(queue.map(customer =>
+    customer.id === id
+      ? { ...customer, status: newStatus }
+      : customer
+  ));
+};
+
 
   const removeFromQueue = (id) => {
     //remove data from queue
